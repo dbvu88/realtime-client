@@ -3,11 +3,20 @@ require("dotenv").config();
 
 const url = process.env.REACT_APP_SOCKET;
 console.log(url);
-const socket = io("https://ducrealtime.herokuapp.com/");
+const socket = io("http://localhost:8000/");
 
 const subscribeToTimer = cb => {
   socket.on("timer", timestamp => cb(timestamp));
   socket.emit("subscribeToTimer", 1000);
 };
 
-export { subscribeToTimer };
+const subscribeToDrawings = cb => {
+  socket.on("drawing", cb);
+  socket.emit("subscribeToDrawings");
+};
+
+const createDrawing = name => {
+  socket.emit("createDrawing", { name });
+};
+
+export { subscribeToTimer, subscribeToDrawings, createDrawing };
