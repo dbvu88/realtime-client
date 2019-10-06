@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "diff": "^4.0.1",
+    "eslint": "^6.5.1",
+    "handlebars": "^4.4.2",
+    "is-my-json-valid": "^2.20.0",
+    "lodash.template": "^4.5.0",
+    "querystringify": "^2.1.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "rxjs": "^5.4.2",
     "rxsync": "^0.0.3",
     "simple-react-canvas": "^0.0.1",
-    "socket.io-client": "^2.0.3"
+    "socket.io-client": "^2.0.3",
+    "stringstream": "^1.0.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"
