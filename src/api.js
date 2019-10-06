@@ -1,5 +1,8 @@
 import openSocket from "socket.io-client";
-const socket = openSocket("http://localhost:8000");
+require("dotenv").config();
+
+const url = process.env.REACT_APP_SOCKET;
+const socket = openSocket(url);
 
 const subscribeToTimer = cb => {
   socket.on("timer", timestamp => cb(timestamp));
