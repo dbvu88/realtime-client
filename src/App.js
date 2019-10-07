@@ -16,7 +16,6 @@ class App extends Component {
     // });
 
     subscribeToDrawings(drawing => {
-      console.log(drawing);
       this.setState(prevState => ({
         drawings: prevState.drawings.concat([drawing])
       }));
@@ -28,7 +27,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.drawings);
+    const { drawings } = this.state;
     return (
       <div className="App">
         <div className="App-header">
@@ -36,7 +35,7 @@ class App extends Component {
         </div>
         {/* timestamp: {this.state.timestamp} */}
         <DrawingForm />
-        <DrawingList {...this.state} />
+        <DrawingList {...{ drawings }} />
       </div>
     );
   }
