@@ -17,7 +17,7 @@ class App extends Component {
 
     subscribeToDrawings(drawing => {
       this.setState(prevState => ({
-        drawings: prevState.drawings.concat([drawing])
+        drawings: [...prevState.drawings, drawing]
       }));
     });
   }
