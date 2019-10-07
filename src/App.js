@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { subscribeToTimer } from "./api";
-import DrawingForm from "./DrawingForm";
-import DrawingList from "./DrawingList";
+import { DrawingForm, DrawingList, DrawingCanvas } from "./DrawingComponents";
 import { subscribeToDrawings } from "./api";
 
 class App extends Component {

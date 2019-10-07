@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createDrawing } from "./api";
+import { createDrawing } from "../api";
 
 const DrawingFrom = props => {
   const [drawingName, setDrawingName] = useState("");
