@@ -1981,7 +1981,7 @@ babel-preset-react-app@^9.0.2:
     babel-plugin-macros "2.6.1"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
 
-babel-runtime@^6.26.0, babel-runtime@^6.6.1:
+babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -8839,13 +8839,6 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
-
-simple-react-canvas@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/simple-react-canvas/-/simple-react-canvas-0.0.1.tgz#c4c180ad9b42592cfd1fb6cc6783e6074b9a6f7e"
-  integrity sha512-U+CzTniD3ZSnZw46BNRROF1NCJ1VCJswiYdJRwTWJ0t96GwgXxEzOLD8RlMm+bFYqLOEq4eDJIuwt+UZ/UwWmg==
-  dependencies:
-    babel-runtime "^6.6.1"
 
 simple-swizzle@^0.2.2:
   version "0.2.2"

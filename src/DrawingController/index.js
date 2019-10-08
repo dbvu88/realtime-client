@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { subscribeToDrawings } from "../api";
 
 import DrawingForm from "./DrawingForm";
@@ -21,22 +21,50 @@ class DrawingController extends Component {
     selectedDrawing: null
   };
 
-  selectDrawing(drawing) {
+  selectDrawing = drawing => {
+    console.log(drawing);
     this.setState({
-      selectDrawing: drawing
+      selectedDrawing: drawing
     });
-  }
+  };
 
   render() {
-    const { drawings } = this.state;
-
+    const { drawings, selectedDrawing } = this.state;
+    const { selectDrawing } = this;
+    console.log(selectedDrawing);
     return (
       <div>
-        <DrawingForm />
-        <DrawingList {...{ drawings }} />
+        {selectedDrawing ? (
+          <DrawingCanvas {...{ selectedDrawing }} />
+        ) : (
+          <div>
+            <DrawingForm />
+            <DrawingList {...{ drawings, selectDrawing }} />
+          </div>
+        )}
       </div>
     );
   }
 }
+
+// const DrawingController = props => {
+//   const [drawings, setDrawings] = useState([]);
+
+//   useEffect(() => {
+//     subscribeToDrawings(drawing => {
+//       setDrawings([...drawings, drawing]);
+//     });
+//     return () => {
+//         setDrawings()
+//     };
+//   });
+
+//   return (
+//     <div>
+//       <DrawingForm />
+//       <DrawingList {...{ drawings }} />
+//     </div>
+//   );
+// };
 
 export default DrawingController;

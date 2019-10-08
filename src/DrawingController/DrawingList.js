@@ -1,12 +1,16 @@
 import React from "react";
 
 const DrawingList = props => {
-  const drawingList = props.drawings;
+  const { drawings, selectDrawing } = props;
 
   return (
-    <ul className="DrawList">
-      {drawingList.map(drawing => (
-        <li className="DrawList-item" key={drawing.id}>
+    <ul className="DrawingList">
+      {drawings.map(drawing => (
+        <li
+          className="DrawingList-item"
+          key={drawing.id}
+          onClick={event => selectDrawing(drawing)}
+        >
           {drawing.name}
         </li>
       ))}
