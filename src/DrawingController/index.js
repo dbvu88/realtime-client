@@ -22,7 +22,7 @@ class DrawingController extends Component {
   };
 
   selectDrawing = drawing => {
-    console.log(drawing);
+    // console.log(drawing);
     this.setState({
       selectedDrawing: drawing
     });
@@ -31,7 +31,7 @@ class DrawingController extends Component {
   render() {
     const { drawings, selectedDrawing } = this.state;
     const { selectDrawing } = this;
-    console.log(selectedDrawing);
+    // console.log(selectedDrawing);
     return (
       <div>
         {selectedDrawing ? (
