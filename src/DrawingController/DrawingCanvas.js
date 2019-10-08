@@ -7,36 +7,38 @@ class DrawingCanvas extends Component {
   };
 
   handleMouseDown = () => {
-    console.log("mouseDown");
     this._drawing = true;
-
+    let { lines } = this.state;
+    console.log(lines);
+    lines = [...lines, []];
     this.setState({
-      lines: [...this.state.lines, []]
+      lines
     });
   };
 
   handleMouseUp = () => {
-    console.log("mouseUp");
+    // console.log("mouseUp");
     this._drawing = false;
   };
 
   handleMouseMove = e => {
-    console.log("mouseMove");
+    // console.log("mouseMove");
     if (!this._drawing) {
       return;
     }
 
     const stage = this.stageRef.getStage();
-    console.dir(stage);
     const point = stage.getPointerPosition();
     const { lines } = this.state;
-    const lastLine = lines[lines.length - 1];
-    lastLine.push([point.x, point.y]);
+    const lastIndex = lines.length - 1;
+    // spread operation is faster than push
+    lines[lastIndex] = [...lines[lastIndex], point.x, point.y];
     this.setState({ lines });
   };
 
   render() {
     const { selectedDrawing } = this.props;
+    const { lines } = this.state;
     return selectedDrawing ? (
       <div className="DrawingCanvas">
         <div className="DrawingCanvas-title">{selectedDrawing.name}</div>
@@ -46,10 +48,18 @@ class DrawingCanvas extends Component {
           onContentMousedown={this.handleMouseDown}
           onContentMousemove={this.handleMouseMove}
           onContentMouseup={this.handleMouseUp}
+          // use ref to interact with DOM in react
           ref={node => {
             this.stageRef = node;
           }}
-        />
+        >
+          <Layer>
+            <Text text="Draw something ..." />
+            {lines.map((line, i) => {
+              return <Line key={i} points={line} stroke="red" />;
+            })}
+          </Layer>
+        </Stage>
       </div>
     ) : null;
   }
