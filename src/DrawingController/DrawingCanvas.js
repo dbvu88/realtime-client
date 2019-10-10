@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Stage, Layer, Line, Text } from "react-konva";
+import { publishLine } from "../api";
 
 class DrawingCanvas extends Component {
   state = {
@@ -9,7 +10,7 @@ class DrawingCanvas extends Component {
   handleMouseDown = () => {
     this._drawing = true;
     let { lines } = this.state;
-    console.log(lines);
+    // console.log(lines);
     lines = [...lines, []];
     this.setState({
       lines
@@ -34,6 +35,10 @@ class DrawingCanvas extends Component {
     // spread operation is faster than push
     lines[lastIndex] = [...lines[lastIndex], point.x, point.y];
     this.setState({ lines });
+    const { selectedDrawing } = this.props;
+    console.log(selectedDrawing);
+
+    publishLine({ drawingId: selectedDrawing.id, line: lines[lastIndex] });
   };
 
   render() {

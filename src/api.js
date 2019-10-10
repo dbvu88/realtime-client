@@ -19,4 +19,8 @@ const createDrawing = name => {
   socket.emit("createDrawing", { name });
 };
 
-export { subscribeToTimer, subscribeToDrawings, createDrawing };
+const publishLine = ({ drawingId, line }) => {
+  socket.emit("publishLine", { drawingId, line });
+};
+
+export { subscribeToTimer, subscribeToDrawings, createDrawing, publishLine };
